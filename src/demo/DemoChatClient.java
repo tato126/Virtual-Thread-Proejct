@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class DemoChatClient {
 
     // TODO 1: 서버 연결 정보 설정
+    // TODO: 따로 분리할 수 있을 것 같다
     // - SERVER_HOST 상수 선언 (localhost)
     static final String SERVER_HOST = "localhost";
     // - SERVER_PORT 상수 선언 (8090)
@@ -23,6 +24,7 @@ public class DemoChatClient {
     public static void main(String[] args) {
 
         // TODO 2: try-with-resources로 리소스 관리
+        // TODO: 가상 쓰레드 또는 코드를 복잡도를 낮출 수 있을 것 같다.
         // - Socket 생성 (SERVER_HOST, SERVER_PORT 연결)
         try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT)) {
 
@@ -37,6 +39,7 @@ public class DemoChatClient {
 
             System.out.println("✅ 채팅 서버에 연결되었습니다!");
 
+            // TODO: 이걸 분리할 수 있지 않을까?
             // 서버 메시지 수신 스레드 (가상 스레드)
             Thread.startVirtualThread(() -> {
                 try {
